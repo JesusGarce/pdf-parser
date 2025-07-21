@@ -496,7 +496,7 @@
             const proveedor = providerSelect ? providerSelect.value : 'ACL';
             formData.append('proveedor', proveedor);
 
-            showMessage('Procesando PDF...', 'loading');
+            showMessage('Procesando PDF...', 'loading', proveedor);
 
             try {
                 const response = await fetch('/api/extract', {

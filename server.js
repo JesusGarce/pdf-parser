@@ -48,7 +48,7 @@ app.post('/api/extract', upload.single('pdf'), async (req, res) => {
     const extractor = new PDFExtractor();
     
     console.log('Procesando PDF:', req.file.originalname);
-    const extractedData = await extractor.extractInvoiceData(pdfPath);
+    const extractedData = await extractor.extractInvoiceData(pdfPath, req.body.proveedor);
     
     // Guardar en base de datos
     const documentId = await db.saveDocument({
